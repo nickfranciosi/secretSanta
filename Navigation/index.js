@@ -3,6 +3,7 @@ import * as constants from "./constants";
 import reducer from "./reducer";
 import component from "./component";
 import container from "./container";
+import { sceneRenderer } from "./router";
 
 export {
   actions,
@@ -10,4 +11,5 @@ export {
   container,
   constants,
   reducer,
+  sceneRenderer,
 };

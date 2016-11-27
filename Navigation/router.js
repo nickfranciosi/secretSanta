@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import {pushRoute, popRoute} from "./actions";
-import scenes from "./scenes";
 
-const RouteWrapper = (Component, navProps )=> class extends React.Component {
+const RouteWrapper = (Component, navProps, scenes )=> class extends React.Component {
   constructor(props) {
     super(props);
     this.handleNavigate = this.handleNavigate.bind(this);
@@ -56,12 +55,13 @@ const connectedWithNavActions = connect(mapStatetoProps, {
   popRoute,
 });
 
-export function renderSceneExternal(props) {
-  const { route } = props.scene;
+export function sceneRenderer(scenes) {
+  return (props) => {
+    const { route } = props.scene;
 
-  const Component =  scenes[route.key].component;
-  const WrappedComponent = connectedWithNavActions(RouteWrapper(Component, props));
+    const Component =  scenes[route.key].component;
+    const WrappedComponent = connectedWithNavActions(RouteWrapper(Component, props, scenes));
 
-  return <WrappedComponent />;
-
+    return <WrappedComponent />;
+  }
 }
