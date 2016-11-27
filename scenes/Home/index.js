@@ -7,18 +7,11 @@ import {
   StyleSheet
 } from 'react-native'
 
-const route = {
-  type: 'push',
-  route: {
-    key: 'about',
-    title: 'About'
-  }
-}
 
-const Home = ({navigateTo}) => (
+const Home = ({navigate, scenes}) => (
   <View style={styles.container}>
     <Text style={styles.title}>Home</Text>
-    <Button onPress={() => navigateTo(route)} title='Go To About' />
+    <Button onPress={() => navigate.to(scenes.about, "push")} title='Go To About' />
   </View>
 )
 

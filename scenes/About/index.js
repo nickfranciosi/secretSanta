@@ -7,10 +7,10 @@ import {
   Button,
 } from 'react-native'
 
-const About = ({navigateBack}) => (
+const About = ({navigate}) => (
   <View style={styles.container}>
     <Text style={styles.title}>About</Text>
-    <Button onPress={navigateBack} title='Go Back' />
+    <Button onPress={navigate.back} title='Go Back' />
   </View>
 )
 
